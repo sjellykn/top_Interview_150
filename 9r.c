@@ -18,7 +18,7 @@ void rotate(int* nums, int numsSize, int k) {
         //     break;
         // }
         j = nums[i];
-        nums[i] = nums[numsSize];
+        nums[i] = nums[numsSize - 1];
         // nums[k] = j;
         // k++;           
     }
