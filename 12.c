@@ -16,18 +16,18 @@
 #include <string.h>
 
 int strStr(char* haystack, char* needle) {
-    int result = strlen(needle);
-    if (strlen(needle) > strlen(haystack))
-        return -1; 
-    for (int i = 0; haystack[i] != '\0'; i++){
-        char * needle2 = needle;
-        while (haystack[i] == *needle2){
-            needle2++; i++;
-            if (*needle2 == '\0'){
-                result = i - result;
-                return (result);
-            }
-        }
+    int needle_len = strlen(needle);
+    int haystack_len = strlen(haystack);
+
+    if (needle_len > haystack_len) {
+        return -1;
+    }
+    for (int i = 0; i <= haystack_len - needle_len; i++){
+        int j = 0;
+        while (j < needle_len && needle[j] == haystack[i + j])
+            j++;
+        if (j == needle_len)
+            return i;
     }
     return (-1);
 }
